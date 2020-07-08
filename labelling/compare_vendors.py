@@ -102,6 +102,14 @@ def plot_vendors_similarity_distribution(dfs: list):
         print(f"------- {vendor} limited similarity distribution -------")
         plt.show()
 
+        # Plot y log-scaled
+        plt.hist(vendors_similarities[vendor], bins=100)
+        plt.hist(vendors_best_labels_similarity[vendor], bins=100)
+        plt.xlim((0,1))
+        plt.yscale("log")
+        print(f"------- {vendor} log-scaled similarity distribution -------")
+        plt.show()
+
     # Generate Latex table with percentages of labels with 0 and 1 similarity
     print(f"\\begin{{tabular}}{{|c|c|c|c|c|}}")
     print("\\hline")
@@ -136,6 +144,14 @@ def plot_vendors_similarity_distribution(dfs: list):
     plt.ylim((0,1200))
     plt.xlim((0,1))
     print(f"------- combined limited similarity distribution -------")
+    plt.show()
+
+    # Plot y log-scaled
+    plt.hist(combined_similarities, bins=100)
+    plt.hist(combined_best_labels_similarity, bins=100)
+    plt.xlim((0,1))
+    plt.yscale("log")
+    print(f"------- combined log-scaled similarity distribution -------")
     plt.show()
 
 
@@ -178,6 +194,14 @@ def plot_datasets_similarity_distribution(dfs: list):
         plt.xlim((0,1))
         plt.ylim((0,600))
         print(f"------- {df_index} dataset limited similarity distribution -------")
+        plt.show()
+
+        # Plot y log-scaled
+        plt.hist(similarities, bins=100)
+        plt.hist(best_labels_similarity, bins=100)
+        plt.xlim((0,1))
+        plt.yscale("log")
+        print(f"------- {df_index} log-scaled similarity distribution -------")
         plt.show()
 
         # Calculate percentages of labels with 0 and 1 similarity
